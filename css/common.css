@@ -1,0 +1,932 @@
+@font-face {
+    font-family: "DIN-Medium";
+    src: url(data:application/x-font-ttf;charset=utf-8;base64,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) format("truetype"); /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+    font-style: normal;
+    font-weight: normal;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.whole-container {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    font-family: -apple-system, BlinkMacSystemFont, PingFangSC-Medium, "PingFang SC", Helvetica, SCHeiti, "Microsoft YaHei";
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    background: #F9F9F9;
+}
+
+.display-none {
+    display: none !important;
+}
+
+.margin-top-24 {
+    margin-top: 24px !important;
+}
+
+.preview .card-container.card-center {
+    top: 45vh;
+}
+
+.card-background {
+    position: absolute;
+    width: 84px;
+    height: 59px;
+    bottom: calc(112vw + 50px);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.editor,
+.send,
+.preview {
+    position: relative;
+    /* 低版本不支持flex 暂时去除 */
+    /* display: flex;
+    justify-content: center; */
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.envelope {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: 1;
+    bottom: 0;
+    width: calc(85vw + 20px);
+    height: 130vw;
+    -webkit-box-shadow: 0 0 53px 0 rgba(198, 206, 213, 0.40);
+            box-shadow: 0 0 53px 0 rgba(198, 206, 213, 0.40);
+    -webkit-transform: translateY(30%);
+        -ms-transform: translateY(30%);
+            transform: translateY(30%);
+    border-radius: 50px 50px 0 0;
+}
+
+.envelope-picture,
+.card-picture {
+    width: 100%;
+}
+
+.receiver-container {
+    position: absolute;
+    padding-left: 8vw;
+    padding-top: 8vw;
+    max-width: 200px;
+}
+
+@media (max-width: 320px) {
+    .receiver-container {
+        max-width: 60%;
+    }
+}
+
+.receiver-name {
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow:ellipsis;
+       text-overflow:ellipsis;
+}
+
+.receiver-sendField {
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.card-container {
+    position: absolute;
+    width: calc(80vw + 20px);
+    height: calc(120vw + 20px);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.card-container.tanslateUp {
+    -webkit-transform: translateY(-50%)!important;
+        -ms-transform: translateY(-50%)!important;
+            transform: translateY(-50%)!important;
+}
+
+.rotate-container {
+    position: relative;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    height: 100%;
+    width: 100%;
+    -webkit-transition: -webkit-transform 1s ease-in;
+    transition: -webkit-transform 1s ease-in;
+    -o-transition: transform 1s ease-in;
+    transition: transform 1s ease-in;
+    transition: transform 1s ease-in, -webkit-transform 1s ease-in;
+}
+
+.rotate-container.overturn {
+    -webkit-transform: matrix3d(-1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1);
+            transform: matrix3d(-1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1);
+}
+
+.overturn+.collect-save {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.card-item {
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    height: 100%;
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid #E1E1E1;
+    -webkit-box-shadow: 0 0 53px 0 rgba(198, 206, 213, 0.40);
+            box-shadow: 0 0 53px 0 rgba(198, 206, 213, 0.40);
+    border-radius: 8px;
+}
+
+.front-end {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+       -moz-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 100%;
+}
+
+.mask-actived {
+    position: relative;
+}
+
+.mask-actived .backend-picture {
+    -webkit-filter: brightness(0.6);
+            filter: brightness(0.6);
+}
+
+.mask-actived .backendp-pic-mask {
+    display: block;
+}
+
+.backendp-pic-mask {
+    position: absolute;
+    display: none;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 12px;
+    line-height: 17px;
+    letter-spacing: 2px;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+.frontend-picture-container {
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    overflow: hidden;
+}
+
+.edit .frontend-picture-container {
+    /* 编辑页面，由于在 webview 上面盖了一个图片避免加载时的白屏，这里为对应图片，按比例缩放padding */
+    padding: 3.333333%;
+}
+
+.frontend-picture {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+.message-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+       -moz-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    padding-top: 36px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.center-box {
+    position: relative;
+    margin: 0 18px;
+}
+
+.back-end {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+       -moz-box-orient: vertical;
+       -moz-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+.backend-picture-container {
+    position: relative;
+    width: calc(100% - 20px);
+    margin-top: 10px;
+    /* overflow: hidden; */
+}
+
+.backend-picture-container.display-none + .message-container {
+    padding-top: 0;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+.frontend-picture-container,
+.backend-picture-container {
+    border-radius: 4px;
+}
+
+.backend-picture {
+    width: 100%;
+    border-radius: 4px;
+    vertical-align: top;
+}
+
+.icon-quotation-mark::before {
+    position: absolute;
+    top: -20px;
+    font-size: 10px;
+}
+
+.backend-footer {
+    position: relative;
+    width: 100%;
+    height: 64px;
+    padding: 10px 20px 0;
+}
+
+.card-message {
+    display: block;
+    max-height: 91px;
+    overflow: hidden;
+    font-size: 14px;
+    color: #33312E;
+    letter-spacing: 0.4px;
+    text-align: justify;
+    line-height: 24px;
+    word-break: break-all;
+}
+
+.card-message-highlight {
+    color: #E6C78A;
+}
+
+.user-name,
+.user-date {
+    display: block;
+    font-size: 13px;
+    color: #999896;
+    line-height: 18px;
+    overflow: hidden;
+    white-space: nowrap;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
+}
+
+.user-name {
+    max-width: 50%;
+    min-height: 18px;
+}
+
+.user-name-Small {
+    max-width: 80px;
+}
+
+.user-date {
+    margin-top: 6px;
+    max-width: 80px;
+    font-family: "DIN-Medium";
+}
+
+.user-position img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 32vw;
+    height: 32vw;
+}
+
+.position-title {
+    position: absolute;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    bottom: 11px;
+    right: 20px;
+    left: 100px;
+    text-align: right;
+    color: #999896;
+    font-size: 12px;
+    line-height: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
+}
+
+.collect-save {
+    opacity: 0;
+    -webkit-transition: opacity .2s linear 1s;
+    -o-transition: opacity .2s linear 1s;
+    transition: opacity .2s linear 1s;
+    pointer-events: none;
+}
+
+.collect-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+       -moz-box-orient: vertical;
+       -moz-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+       -moz-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 50vw;
+    margin: 2.5vh auto 0;
+}
+
+.collect-container::after {
+    margin-top: 5px;
+    font-size: 12px;
+    color: #99999A;
+}
+
+.collect-container.icon-heart-empty::after {
+    content: '\559C\6B22\5C31\70B9\8D5E\6536\85CF\5427'
+}
+
+.collect-container.icon-heart-filled::after {
+    content: '\5DF2\6536\85CF\FF0C\5230\7EAA\5FF5\518C\67E5\770B>'
+}
+.icon-heart-empty:before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: url(https://rescdn.qqmail.com/qqmail/images/heart-empty-0905.png) left top no-repeat;
+    background-size: 100%;
+}
+
+.icon-heart-filled:before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: url(https://rescdn.qqmail.com/qqmail/images/heart-filled-0905.png) left top no-repeat;
+    background-size: 100%;
+}
+
+.save-container {
+    text-align: center;
+    margin-top: 2vh;
+}
+
+.send-btn {
+    display: inline-block;
+    font-size: 14px;
+    color: #33312E;
+    line-height: 26px;
+    padding: 1vh 20px;
+}
+
+.send-btn:active {
+    opacity: .5;
+}
+
+.save-btn {
+    display: inline-block;
+    font-size: 14px;
+    color: #33312E;
+    line-height: 26px;
+    padding: 1vh 20px;
+}
+
+.save-btn:active {
+    opacity: .5;
+}
+
+.send-btn-icon {
+    display: inline-block;
+    vertical-align: top;
+    width: 26px;
+    height: 26px;
+    background: url(https://rescdn.qqmail.com/qqmail/images/sendBtn.png) left top no-repeat;
+    background-size: 100%;
+    margin-right: 10px;
+}
+
+.save-btn-icon {
+    display: inline-block;
+    vertical-align: top;
+    width: 26px;
+    height: 26px;
+    background: url(https://rescdn.qqmail.com/qqmail/images/saveBtn.png) left top no-repeat;
+    background-size: 100%;
+    margin-right: 10px;
+}
+
+.hidden-picture-mask {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 998;
+}
+
+.hidden-picture-mask.actived {
+    display: block;
+}
+
+.hidden-picture-mask.actived+.state-container {
+    -webkit-filter: blur(3px);
+            filter: blur(3px);
+}
+
+.hidden-picture-mask::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .2);
+}
+
+.hidden-picture-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+       -moz-box-orient: vertical;
+       -moz-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: absolute;
+    width: 85vw;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+        -ms-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+}
+
+.hiddle-picture {
+    width: 100%;
+}
+
+.hidden-picture-title {
+    margin-top: 20px;
+    font-size: 13px;
+    color: #FFFFFF;
+    letter-spacing: 2px;
+    text-align: center;
+    line-height: 18px;
+}
+
+.hidden-picture-saveToBook {
+    padding: 10px;
+    font-size: 13px;
+    color: #FFFFFF;
+    letter-spacing: 2px;
+    text-align: center;
+    line-height: 17px;
+}
+
+.hidden-picture-saveToBook:before {
+    content: '';
+    display: inline-block;
+    width: 13px;
+    height: 17px;
+    background: url(https://rescdn.qqmail.com/qqmail/images/book-sdf453_3x.png) left top no-repeat;
+    background-size: 100%;
+    vertical-align: top;
+    margin-right: 5px;
+}
+
+.hidden-picture-saveToBook:after {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: url(https://rescdn.qqmail.com/qqmail/images/arrowRight-4972jd_3x.png) left top no-repeat;
+    background-size: 100%;
+    vertical-align: -1px;
+}
+
+.editor .envelope {
+    top: 0;
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
+}
+
+.editor .card-container {
+    width: 100vw;
+    height: 100vh;
+}
+
+.editor .card-item {
+    /* 低版本安卓有兼容性的问题，右边和下边的边框会被裁减点，这里做hack处理 */
+    width: calc(100% - 1px);
+    height: calc(100% - 1px);
+    -webkit-backface-visibility: visible;
+            backface-visibility: visible;
+}
+
+.before-user-input {
+    color: #D0D0D0;
+}
+
+.send .card-container {
+    bottom: 0;
+    -webkit-transform: translateY(-20%);
+        -ms-transform: translateY(-20%);
+            transform: translateY(-20%);
+}
+
+.send .back-end {
+    display: none;
+}
+
+.editor .envelope-withouthead,
+.send .envelope-withouthead {
+    display: none;
+}
+
+.send .envelope {
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
+    -webkit-box-shadow: 0 0 8px 0 rgba(198, 206, 213, 0.40);
+            box-shadow: 0 0 8px 0 rgba(198, 206, 213, 0.40);
+}
+
+.send .card-item {
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
+    -webkit-box-shadow: 0 0 8px 0 rgba(198, 206, 213, 0.40);
+            box-shadow: 0 0 8px 0 rgba(198, 206, 213, 0.40);
+}
+
+.send .receiver-container {
+    padding-top: 21vw;
+}
+
+.preview .envelope {
+    -webkit-transition: -webkit-transform .5s cubic-bezier(.74, .26, .82, 1.09);
+    transition: -webkit-transform .5s cubic-bezier(.74, .26, .82, 1.09);
+    -o-transition: transform .5s cubic-bezier(.74, .26, .82, 1.09);
+    transition: transform .5s cubic-bezier(.74, .26, .82, 1.09);
+    transition: transform .5s cubic-bezier(.74, .26, .82, 1.09), -webkit-transform .5s cubic-bezier(.74, .26, .82, 1.09);
+}
+
+.preview .envelope-withhead {
+    display: none;
+}
+
+.preview .envelope.hidden {
+    -webkit-transform: translateY(100%);
+        -ms-transform: translateY(100%);
+            transform: translateY(100%);
+}
+
+.preview .card-container {
+    bottom: 0;
+    -webkit-transform: translateY(5%);
+        -ms-transform: translateY(5%);
+            transform: translateY(5%);
+    -webkit-transition: -webkit-transform .5s cubic-bezier(.74, .26, .82, 1.09);
+    transition: -webkit-transform .5s cubic-bezier(.74, .26, .82, 1.09);
+    -o-transition: transform .5s cubic-bezier(.74, .26, .82, 1.09);
+    transition: transform .5s cubic-bezier(.74, .26, .82, 1.09);
+    transition: transform .5s cubic-bezier(.74, .26, .82, 1.09), -webkit-transform .5s cubic-bezier(.74, .26, .82, 1.09);
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+}
+
+.preview .back-end {
+    -webkit-transform: matrix3d(-1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1);
+            transform: matrix3d(-1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1);
+}
+
+
+
+/*贺卡祝福语适配短屏手机*/
+
+@media screen and (max-width: 283px) {
+    .card-message {
+        font-size: 12px;
+    }
+}
+
+
+
+/*预览样式适配iphoneX*/
+
+@media screen and (min-height: 740px) {
+    .envelope {
+        -webkit-transform: translateY(10%);
+            -ms-transform: translateY(10%);
+                transform: translateY(10%);
+    }
+
+    .preview .card-container {
+        -webkit-transform: translateY(-20%);
+            -ms-transform: translateY(-20%);
+                transform: translateY(-20%);
+    }
+
+    .card-background {
+        bottom: calc(144vw + 50px);
+    }
+}
+
+/*兼容PC*/
+@media screen and (min-width: 432px) {
+    .whole-container {
+        width: 656px;
+        height: 492px;
+        margin: auto;
+        background: none;
+    }
+    .rotate-container {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+    .card-container {
+        width: 100%;
+        height: 100%;
+        -webkit-transform: none !important;
+            -ms-transform: none !important;
+                transform: none !important;
+    }
+    .overturn {
+        -webkit-transform: none !important;
+            -ms-transform: none !important;
+                transform: none !important;
+    }
+    .front-end {
+        padding: 30px;
+        background: #F2F3F4;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+           -moz-box-orient: vertical;
+           -moz-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        border-radius: 4px 0 0 4px;
+        border-right: none;
+    }
+    .frontend-picture-container {
+        background: #fff;
+        height: auto;
+        -webkit-box-sizing: border-box;
+           -moz-box-sizing: border-box;
+                box-sizing: border-box;
+    }
+    .front-end::after {
+        content: 'QQ\90AE\7BB1   \5E38\8054\7CFB';
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 20px;
+        color: rgba(200, 202, 204, 0.6);
+        margin-top: 14px;
+    }
+    .back-end {
+        -webkit-transform: none !important;
+            -ms-transform: none !important;
+                transform: none !important;
+        border-radius: 0 4px 4px 0;
+    }
+    .backend-picture-container {
+        background: url(https://rescdn.qqmail.com/qqmail/images/message_head-17d94053182.png) no-repeat;
+        height: 115px;
+        width: 278px;
+        margin: 30px 0 40px 36px;
+    }
+    .backend-picture {
+        display: none;
+    }
+    .message-container {
+        padding: 0 18px;
+        -webkit-box-flex: unset;
+        -webkit-flex: unset;
+           -moz-box-flex: unset;
+            -ms-flex: unset;
+                flex: unset;
+    }
+    .center-box {
+        width: 100%;
+    }
+    .icon-quotation-mark:before {
+        content: '';
+    }
+    .card-container.tanslateUp {
+        -webkit-transform: none !important;
+            -ms-transform: none !important;
+                transform: none !important;
+    }
+    .envelope {
+        width: 100%;
+        height: 328px;
+        -webkit-transform: none;
+            -ms-transform: none;
+                transform: none;
+        border-radius: unset;
+        border: 7px solid;
+        -o-border-image: url(https://rescdn.qqmail.com/qqmail/images/envelope_border-17d94053182.png) 7;
+           border-image: url(https://rescdn.qqmail.com/qqmail/images/envelope_border-17d94053182.png) 7;
+        background-color: #fff;
+        display: none;
+        /*display: flex;*/
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+           -moz-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+           -moz-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+    }
+    .envelope-picture {
+        display: none;
+    }
+    .receiver-container {
+        padding: 38px 50px;
+        position: static;
+        background-color: #F2F3F4;
+        min-width: 400px;
+        max-width: unset;
+        text-align: center;
+        -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+                box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        outline: 1px solid #E9EAEB;
+        outline-offset: -11px;
+        color: #5C6166;
+        font-size: 14px;
+    }
+    .receiver-name {
+        font-size: inherit;
+        font-weight: bold;
+    }
+    .receiver-sendField {
+        font-size: 13px;
+        margin-top: 8px;
+    }
+    .receiver-sendField::after {
+        content: '\67E5\770B\8D3A\5361';
+        display: block;
+        background-color: #328FFA;
+        margin: 24px auto 0;
+        width: 84px;
+        color: #fff;
+        line-height: 28px;
+        border-radius: 2px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+    .preview .card-container.card-center {
+        top: 0;
+    }
+
+    .card-background {
+        display: none;
+    }
+    .card-message {
+        background: url(https://rescdn.qqmail.com/qqmail/images/message_line-17d94053182.png);
+        background-position-y: -1px;
+        max-height: 176px;
+        min-height: 111px;
+        line-height: 22px;
+    }
+
+    .user-position img {
+        width: 120px;
+        height: 120px;
+        bottom: -11px;
+        right: 16px;
+    }
+    .position-title {
+        padding-bottom: 0;
+        bottom: 0;
+        right: 36px;
+        left: 117px;
+    }
+    .card-item {
+        position: relative;
+        width: 50%;
+    }
+    .backend-footer {
+        height: auto;
+        padding: 28px 36px 0;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+           -moz-box-orient: vertical;
+           -moz-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-pack: end;
+        -webkit-justify-content: end;
+           -moz-box-pack: end;
+            -ms-flex-pack: end;
+                justify-content: end;
+    }
+    .user-date, .user-name {
+        max-width: unset;
+    }
+}
+
+
+
